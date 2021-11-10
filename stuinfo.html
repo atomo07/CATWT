@@ -1,0 +1,51 @@
+<html>
+<head>
+<style>
+div {
+	align:center;
+	width:400px;
+	height:300px;
+border: solid black;
+background-color:orange;
+ 
+padding: 20px;
+}
+ 
+</style>
+</head>
+<body>
+<div>
+<h1>Enter data for Student</h1>
+<form  method="post">
+Stdid:<br  />
+<input type="int" name="stuid"/><br />
+Name:<br />
+<input type="text" name="stu-name"/><br />
+Age:<br />
+<input type="int" name="age"/><br />
+Gender:<br />
+<input type="text" name="gender"/><br />
+course:<br />
+<input type="text" name=course"/><br />
+address:<br />
+<input type="text" name="address"/><br />
+<br><br>
+<input type="submit" name="OK" />
+</form>
+<?php 
+include "dbConn.php";//DB 
+$dbConn=mysqli_connect("localhost","root","","christ");
+if(isset($_POST['OK'])){
+$p =$_POST['stuid'];
+$f =$_POST['stu-name']; 
+$g =$_POST['age'];
+$h =$_POST['gender']; 
+$i =$_POST['course']; 
+$j =$_POST['address'];
+$sql=mysqli_query($con,"INSERT INTO stuinfo (stuid,stu-name,age,gender,course,address) VALUES ('$p','$f','$g', '$h', '$i', '$j')");
+}
+?> 
+</div>
+</body>
+ 
+</html>
